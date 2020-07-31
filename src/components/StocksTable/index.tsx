@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Spinner } from 'react-bootstrap'
+import { Table, Spinner, Alert } from 'react-bootstrap'
 import { Query } from 'react-apollo'
 import { Stock } from '../../interfaces/stock'
 import { GraphqlResponse } from '../../interfaces'
@@ -29,7 +29,7 @@ export default function StocksTable({ query, dataKey }: Props) {
     <Query query={query}>
       {({ data, loading }: GraphqlResponse) => {
         if (loading) return <Spinner animation="border" variant="primary" />
-        return (
+        return data[dataKey].length > 0 ? (
           <Table bordered hover size="sm">
             <thead>
               <tr>
@@ -45,6 +45,10 @@ export default function StocksTable({ query, dataKey }: Props) {
             </thead>
             <tbody>{tableData(data[dataKey])}</tbody>
           </Table>
+        ) : (
+          <div style={{ width: 'fit-content' }}>
+            <Alert variant="info">Nenhuma ação encontrada no momento.</Alert>
+          </div>
         )
       }}
     </Query>
