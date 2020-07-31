@@ -7,7 +7,7 @@ export default function GoodCheap() {
   return (
     <div className="cheap">
       <Container fluid>
-        <h1>Ações baratas</h1>
+        <h1>Muito Baratas</h1>
         <p>Ações com preço muito abaixo da média</p>
         <StocksTable query={GET_CHEAP} dataKey="cheap" />
       </Container>

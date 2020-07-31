@@ -4,12 +4,14 @@ import GoodCheap from './views/GoodCheap'
 import GoodIndicators from './views/GoodIndicators'
 import TopDividend from './views/TopDividend'
 import Cheap from './views/Cheap'
+import AppHeader from './components/AppHeader'
 import './App.scss'
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <AppHeader />
         <Switch>
           <Route path="/good-indicators">
             <GoodIndicators />
