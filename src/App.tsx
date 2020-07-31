@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import GoodCheap from './views/GoodCheap'
+import GoodIndicators from './views/GoodIndicators'
 import './App.scss'
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/good-indicators"></Route>
+          <Route path="/good-indicators">
+            <GoodIndicators />
+          </Route>
           <Route path="/good-cheap">
             <GoodCheap />
           </Route>

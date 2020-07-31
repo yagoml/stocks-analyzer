@@ -5,19 +5,19 @@ import StocksTable from '../../components/StocksTable'
 
 export default function GoodCheap() {
   return (
-    <div className="goodCheap">
+    <div className="good-indicators">
       <Container fluid>
-        <h1>Boas e baratas</h1>
-        <p>Ações com bons indicadores e com preço abaixo da média</p>
-        <StocksTable query={GET_GOOD_CHEAP} dataKey="goodAndCheap" />
+        <h1>Bons Indicadores</h1>
+        <p>Ações com bons indicadores</p>
+        <StocksTable query={GET_GOOD_INDICATORS} dataKey="goodIndicators" />
       </Container>
     </div>
   )
 }
 
-const GET_GOOD_CHEAP = gql`
+const GET_GOOD_INDICATORS = gql`
   {
-    goodAndCheap {
+    goodIndicators {
       code
       price {
         actualValue

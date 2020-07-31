@@ -6,9 +6,10 @@ import { GraphqlResponse } from '../../interfaces'
 
 interface Props {
   query: any
+  dataKey: string
 }
 
-export default function StocksTable({ query }: Props) {
+export default function StocksTable({ query, dataKey }: Props) {
   const tableData = (stocks: [Stock]) => {
     return stocks.map((stock: Stock) => (
       <tr key={stock.code.toString()}>
@@ -36,13 +37,13 @@ export default function StocksTable({ query }: Props) {
                 <th>Preço</th>
                 <th>Min.</th>
                 <th>Max.</th>
-                <th>Dividendos</th>
+                <th title="Dividendos">Divs.</th>
                 <th title="Patrimônio / Lucro">P/L</th>
                 <th title="Return on Equity">ROE</th>
                 <th title="Lucro por Ação">LPA</th>
               </tr>
             </thead>
-            <tbody>{tableData(data.goodAndCheap)}</tbody>
+            <tbody>{tableData(data[dataKey])}</tbody>
           </Table>
         )
       }}
